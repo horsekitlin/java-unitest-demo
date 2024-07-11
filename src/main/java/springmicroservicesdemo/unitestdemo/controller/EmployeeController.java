@@ -29,8 +29,9 @@ public class EmployeeController {
         return response;
     }
 
-    @PostMapping(path = "/employees", produces = "application/json")
-    public ResponseEntity<Employees> createEmployee(@RequestBody Employee employee) {
+    @PostMapping(path = "/employees", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<Object> addEmployee(@RequestBody Employee employee) {
+
         //add resource
         employee = employeeRepository.save(employee);
 
